@@ -14,14 +14,15 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 const useStyles1 = makeStyles(() => ({
   root: {
-    background: 'linear-gradient(180deg, rgba(255,255,255,1) 74%, rgba(255,209,0,1) 100%)',
+    background: "linear-gradient(180deg, rgba(32,32,32,1) 70%, rgba(255,209,0,1) 99%)"
   },
   logo: {
-    color: '#202020',
+    color: '#ffd100',
+    fontFamily: 'auto',
     flexGrow: 1
   },
   text: {
-    color: '#202020',
+    color: '#ffd100',
   }
 }));
 
