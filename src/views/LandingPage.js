@@ -1,30 +1,16 @@
 import React from 'react'
-import Container from '@material-ui/core/Container';
 import HeroSection from '../components/HeroSection'
+import AboutSection from '../components/AboutSection'
+import CareersSection from '../components/CareersSection'
+
 
 
 const LandingPage = () => {
     return(
         <>
         <HeroSection />
-        <div>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-        </div>
+        <AboutSection />
+        <CareersSection />
         </>
     )
 }
