@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles({
     root: {
-        height: '88vh',
+        height: '93vh',
         width: '100vw',
         display: 'flex',
         flexDirection: 'column'
@@ -20,8 +20,8 @@ const useStyles = makeStyles({
         backgroundBlendMode: 'multiply',
         backgroundColor: '#FFEE32',
         opacity: '.7',
-        height: '100%',
-        width: '100%',
+        height: '100vh',
+        width: '100vw',
         position: 'absolute',
         top: '0',
         left: '0',
@@ -35,7 +35,7 @@ const useStyles = makeStyles({
         fontFamily: 'auto',
         backgroundColor: '#202020',
         opacity: '.9',
-        color: '#FFD100',
+        color: '#e2d086',
         ['@media (max-width: 1240px)'] : {
             fontSize: '6em'
         },
@@ -52,7 +52,7 @@ const useStyles = makeStyles({
     },
     button: {
         justifySelf: 'center',
-        backgroundColor: '#FFD100',
+        backgroundColor: '#e2d086',
         width: 'fit-content',
         alignSelf: 'center'
     }
@@ -77,3 +77,9 @@ const HeroSection = () => {
 }
 
 export default HeroSection;
+
+
+// dont do regional
+// dont pay for equipment
+// no benefits
+// family owned !!!

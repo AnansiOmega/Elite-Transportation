@@ -7,7 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Button from '@material-ui/core/Button';
 import Slide from '@material-ui/core/Slide';
-import MenuItem from '@material-ui/core/MenuItem';
+import { useHistory, useLocation } from 'react-router-dom'
 
 
 
@@ -15,15 +15,17 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 const useStyles1 = makeStyles(() => ({
   root: {
-    background: "linear-gradient(180deg, rgba(32,32,32,1) 70%, rgba(255,209,0,1) 99%)"
+    // background: "linear-gradient(180deg, rgba(32,32,32,1) 70%, rgba(255,209,0,1) 99%)"
+    background: 'linear-gradient(0deg, rgba(226,208,134,1) 0%, rgba(88,83,62,1) 21%, rgba(32,32,32,1) 45%)'
   },
   logo: {
-    color: '#ffd100',
+    color: '#e2d086',
     fontFamily: 'auto',
+    cursor: 'pointer',
     flexGrow: 1
   },
   text: {
-    color: '#ffd100',
+    color: '#e2d086',
   }
 }));
 
@@ -35,6 +37,7 @@ const useStyles2 = makeStyles(() => ({
   logo: {
     flexGrow: 1,
     color: '#D6D6D6',
+    cursor: 'pointer'
   },
   text: {
     color: '#D6D6D6',
@@ -59,11 +62,25 @@ const NavBar = (props) => {
   const classes1 = useStyles1();
   const classes2 = useStyles2();
   const [transparent, setTransparent] = useState(true)
+  const history = useHistory()
+  const { pathname } = useLocation()
+
   useEffect(() => {
     document.addEventListener('scroll', () => {
-      window.scrollY > 633 ? setTransparent(false) : setTransparent(true)
+      if(window.scrollY > 633 || pathname === '/apply'){
+        setTransparent(false)
+      } else { 
+        setTransparent(true)
+      }
     })
-})
+  }, [pathname])
+
+
+  const handleRouteChange = () => {
+    history.push('/apply')
+    setTransparent(false)
+  }
+
 
   return (
     <React.Fragment>
@@ -71,8 +88,8 @@ const NavBar = (props) => {
       <HideOnScroll {...props}>
         <AppBar className={transparent ? classes2.root : classes1.root}>
           <Toolbar>
-          <Typography className={transparent? classes2.logo : classes1.logo} variant="h6">Elite Transportation</Typography>
-          <Button className={transparent ? classes2.text : classes1.text}>Apply Today</Button>
+          <Typography onClick={() => history.push('/')} className={transparent ? classes2.logo : classes1.logo} variant="h6">Elite Transportation</Typography>
+          <Button onClick={handleRouteChange} className={transparent ? classes2.text : classes1.text}>Apply Today</Button>
           </Toolbar>
         </AppBar>
       </HideOnScroll>

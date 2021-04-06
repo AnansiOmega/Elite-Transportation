@@ -10,10 +10,10 @@ const useStyles = makeStyles({
     },
     about: {
         backgroundColor: '#202020',
-        color: '#D6D6D6',
+        color: '#e2d086',
     },
     listCont: {
-        backgroundColor: '#D6D6D6',
+        backgroundColor: '#e2d086',
         color: '#202020',
     },
     listHeader: {
@@ -23,7 +23,9 @@ const useStyles = makeStyles({
     },
     list: {
         fontSize: '1.4em',
-        marginLeft: '5%'
+        marginLeft: '5%',
+        lineHeight: '2.5rem',
+        fontWeight: '500'
     },
     header: {
         fontSize: '5em',
@@ -38,7 +40,9 @@ const useStyles = makeStyles({
     content: {
         marginLeft: '10%',
         fontSize: '1.2em',
-        marginRight: '4%'
+        marginRight: '4%',
+        marginBottom: '15%',
+        marginTop: '5%'
     }
 
 })
@@ -52,7 +56,6 @@ const AboutSection = () => {
         document.addEventListener('scroll', () => {
             window.scrollY > 140 ? setShowHeaders(true) : setShowHeaders(false)
             window.scrollY > 238 ? setShowSubHeaders(true) : setShowSubHeaders(false)
-            console.log(window.scrollY)
         })
     })
 

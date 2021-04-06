@@ -1,5 +1,3 @@
-.landing-page-cont{
-  display: flex;
-  width: 100vw;
-  flex-direction: row;
+body { 
+  width: 100vw; 
 }
