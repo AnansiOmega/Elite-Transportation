@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Slide from '@material-ui/core/Slide';
+import { primaryColor, primaryBackgroundColor } from '../Constants/DesignConstants'
 
 
 const useStyles = makeStyles({
@@ -9,12 +10,12 @@ const useStyles = makeStyles({
         gridTemplateColumns: '60vw 40vw',
     },
     about: {
-        backgroundColor: '#202020',
-        color: '#e2d086',
+        backgroundColor: primaryBackgroundColor,
+        color: primaryColor,
     },
     listCont: {
-        backgroundColor: '#e2d086',
-        color: '#202020',
+        backgroundColor: primaryColor,
+        color: primaryBackgroundColor,
     },
     listHeader: {
         fontSize: '2.5em',
@@ -59,15 +60,6 @@ const AboutSection = () => {
         })
     })
 
-    // Our Dry Freight Division operates in 11 western states, so home is always just a day or two away. Our Refrigerated
-//  Division operates longer routes throughout the contiguous 48 states. At May Trucking Company, drivers choose their
-//  own division. We provide the job that best fits our drivers' lifestyle.
-
-// Werner drivers and customers are faced with daily challenges that require best-in-class operations, innovation and talent.
-//  Our strength is fueled by our ability to meet these challenges head-on, offering a comprehensive portfolio at a global scale,
-//  while also delivering on award winning customer service, technology and innovation. It’s Werner’s strength in transportation 
-// and logistics that strengthens the business of our customers.
-
 
     return(
         <div className={classes.root}>
@@ -103,11 +95,13 @@ const AboutSection = () => {
                     <li>On Demand Services</li>
                 </Slide>
                 <Slide  direction='left' in={showHeaders} mountOnEnter unmountOnExit timeout={6000}>
-                    <li>Local & Regional Delivery</li>
+                    <li>O.T.R (We deliver to 48 states)</li>
+                </Slide>
+                <Slide  direction='left' in={showHeaders} mountOnEnter unmountOnExit timeout={6000}>
+                    <li>Long, dependable miles, adding consistency and reliabiilty to your paycheck</li>
                 </Slide>
             </ul>
             </div>
-
         </div>
     )
 }
@@ -115,28 +109,9 @@ const AboutSection = () => {
 export default AboutSection;
 
 
+// dont do regional
 // great customer service 
 // 24hr dispatch
 // top of the line broker carrier relations
 
 
-
-
-// May Trucking Company has the most skilled and dedicated team of professional drivers on the road. With the stability
-//  of over 75 years in business, our drivers are our most valued assets and the reason for our growth and success.
-
-// May Trucking Company is committed to improving the quality of life for our drivers and their families by providing
-//  the best equipment, superior pay, high-quality benefits, and ensuring efficient operations and load planning that allow
-//  them to maximize their home life without sacrificing safety or income.
-
-// Our Dry Freight Division operates in 11 western states, so home is always just a day or two away. Our Refrigerated
-//  Division operates longer routes throughout the contiguous 48 states. At May Trucking Company, drivers choose their
-//  own division. We provide the job that best fits our drivers' lifestyle.
-
-// Werner drivers and customers are faced with daily challenges that require best-in-class operations, innovation and talent.
-//  Our strength is fueled by our ability to meet these challenges head-on, offering a comprehensive portfolio at a global scale,
-//  while also delivering on award winning customer service, technology and innovation. It’s Werner’s strength in transportation 
-// and logistics that strengthens the business of our customers.
-
-// Behind the scenes, the finest staff of customer service, logistics, driver managers, maintenance, and human resource
-//  professionals in the industry supports our drivers. We never forget that May Trucking Company's success depends on our drivers' success.

@@ -2,6 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import HeroImage from '../assets/imgs/UnitedStatesPhoto.jpeg'
 import Button from '@material-ui/core/Button';
+import { primaryBackgroundColor, primaryColor, secondaryColor } from '../Constants/DesignConstants';
 // import Slide from '@material-ui/core/Slide';
 
 
@@ -33,9 +34,9 @@ const useStyles = makeStyles({
         borderTopStyle: 'solid',
         borderBottomStyle: 'solid',
         fontFamily: 'auto',
-        backgroundColor: '#202020',
+        backgroundColor: primaryBackgroundColor,
         opacity: '.9',
-        color: '#e2d086',
+        color: primaryColor,
         ['@media (max-width: 1240px)'] : {
             fontSize: '6em'
         },
@@ -79,7 +80,6 @@ const HeroSection = () => {
 export default HeroSection;
 
 
-// dont do regional
 // dont pay for equipment
 // no benefits
 // family owned !!!

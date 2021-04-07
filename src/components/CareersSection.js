@@ -3,6 +3,10 @@ import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import HalfLogo from '../assets/imgs/half-logo.png'
 import Button from '@material-ui/core/Button';
+import BenefitsCard from './BenefitsCard'
+import { AttachMoney, LocalShipping, Pets, WbSunny, EventAvailable } from '@material-ui/icons';
+import { secondaryColor, secondaryBackgroundColor } from '../Constants/DesignConstants'
+import Typography from '@material-ui/core/Typography'
 
 
 const useStyles = makeStyles({
@@ -12,52 +16,103 @@ const useStyles = makeStyles({
         backgroundRepeat: 'no-repeat',
         backgroundPositionX: '100%',
         backgroundPositionY: '100%',
-        backgroundColor: '#f1e9c5',
+        backgroundColor: secondaryColor,
         display: 'flex',
         flexDirection: 'column'
     },
     header: {
         fontSize: '4em',
-        color: '#333533',
+        color: secondaryBackgroundColor,
         marginLeft: '5%',
     },
-    listHeader: {
-        fontSize: '2.5em',
-        marginLeft: '5%',
-        marginTop: '2%',
-        marginBottom: '1%',
-        color: '#333533',
+    subHeader: {
+        fontSize: '2em',
+        marginLeft: '10%',
+        marginBottom: '4%',
+        fontWeight: '600'
     },
-    list: {
-        fontSize: '1.4em',
-        marginLeft: '5%',
-        color: '#333533',
-        fontWeight: '500'
+    cardCont: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(20rem, 1fr))',
+        gridTemplateRows: 'auto',
+        gap: '1rem',
+        marginLeft: '15%',
+        marginRight: '15%',
+        marginBottom: '6%'
     },
     button: {
         justifySelf: 'center',
         alignSelf: 'center', 
-        backgroundColor: '#333533',
+        backgroundColor: secondaryBackgroundColor,
         width: 'fit-content',
         alignSelf: 'center',
         width: '7rem',
-        color: '#e2d086'
+        color: secondaryColor
     }
 
 })
+
+// this is the list of benefits that are offered, each benefit has an array of points, and an icon attached
+const benefits = [
+    {
+        content: [
+            '3000 miles average per week',
+            '$1950 Average per week',
+            '$0.70 CPM for start',
+            'Detention, and Layover pay',
+            'Safety Bonus Included'
+        ],
+        icon: <AttachMoney style={{fontSize: 50}} />
+    },
+    {
+        content: [
+            'Paid Vacation',
+            'Earn Vacation time on first day of work'
+        ],
+        icon: <WbSunny style={{fontSize: 50}} />
+    },
+    {
+        content: [
+            'Pet Friendly'
+        ],
+        icon: <Pets style={{fontSize: 50}} />
+    },
+    {
+        content: [
+            "Drivers don't touch the freight",
+            'No escrow',
+            'Friendly dispatch',
+            'Rider policy'
+        ],
+        icon: <LocalShipping style={{fontSize: 50}}/>
+    },
+    {
+        content: [
+            'No forced dispatch',
+            'Flexible scheduling',
+            'Work from home time'
+        ],
+        icon: <EventAvailable style={{fontSize: 50}} />
+    }
+]
 const CareersSection = () => {
     const classes = useStyles()
     const history = useHistory()
+
+    const renderBenefitCards = () => {
+        return benefits.map((benefit, i) => {
+            let inverse = i % 2 === 0 ? true : false
+            return <BenefitsCard icon={benefit.icon} content={benefit.content} inverse={inverse} />
+        })
+    }
+
     return(
         <div className={classes.root}>
             <h1 className={classes.header}>Careers at Elite Transportation Inc.</h1>
-            <h3>We are currently hiring!</h3>
-            <h3 className={classes.listHeader}>Working with us gets you:</h3>
-            <ul className={classes.list}>
-                <li>Competitive Pay</li>
-                <li>No Forced Dispatch</li>
-                <li>We will work around your home time</li>
-            </ul>
+            <Typography className={classes.subHeader}>The benefits we offer:</Typography>
+            <div className={classes.cardCont}>
+                {renderBenefitCards()}
+            </div>
             <Button onClick={() => history.push('/apply')} size='large' className={classes.button}>Apply Now</Button>
         </div>
     )
