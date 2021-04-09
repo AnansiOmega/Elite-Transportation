@@ -28,7 +28,23 @@ const useStyles = makeStyles({
     logo: {
         width: '13rem',
         height: 'auto'
-    }
+    },
+    ['@media (max-width: 600px)'] : {
+        root: {
+            flexDirection: 'column-reverse',
+            height: 'auto',
+            alignItems: 'center'
+        },
+        logo: {
+            alignSelf: 'center'
+        },
+        slogan: {
+            alignSelf: 'center'
+        },
+        companyInfo: {
+            marginTop: '10%'
+        }
+    },
 })
 
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import HalfLogo from '../assets/imgs/half-logo.png'
@@ -14,8 +14,8 @@ const useStyles = makeStyles({
         backgroundImage: `url(${HalfLogo})`,
         backgroundSize: 'auto 50%',
         backgroundRepeat: 'no-repeat',
-        backgroundPositionX: '100%',
-        backgroundPositionY: '100%',
+        backgroundPositionX: '100vw',
+        backgroundPositionY: '100vh',
         backgroundColor: secondaryColor,
         display: 'flex',
         flexDirection: 'column'
@@ -36,12 +36,12 @@ const useStyles = makeStyles({
         gridTemplateColumns: 'repeat(auto-fill, minmax(20rem, 1fr))',
         gridTemplateRows: 'auto',
         gap: '1rem',
-        marginLeft: '15%',
-        marginRight: '15%',
         marginBottom: '6%',
         height: 'minmax(20vh, auto)',
+        marginLeft: '5%',
+        marginRight: '5%'
     },
-   button: {
+    button: {
         justifySelf: 'center',
         alignSelf: 'center', 
         backgroundColor: secondaryBackgroundColor,
@@ -54,6 +54,27 @@ const useStyles = makeStyles({
             backgroundColor: primaryBackgroundColor,
             borderColor: primaryBackgroundColor,
             color: primaryColor
+        }
+    },
+    ['@media (max-width: 950px)'] : {
+        header: {
+            fontSize: '3em'
+        }
+    },
+    ['@media (max-width: 750px)'] : {
+        header: {
+            fontSize: '2.5em'
+        }
+    },
+    ['@media (max-width: 600px)'] : {
+        header: {
+            fontSize: '2.3em',
+            marginRight: '6%',
+            textAlign: 'center'
+        },
+        subHeader: {
+            textAlign: 'center',
+            marginRight: '6%'
         }
     }
 })
@@ -153,3 +174,7 @@ export default CareersSection;
 // :tabp(revious)
 // :tabn(ext)
 // gb - will make multiple cursors
+// f [char] jumps to characer
+// t is the other version
+// c t [char] highilight from one place and delete to that character
+// c f [char] probably the one you wanna use to highilight and delete things

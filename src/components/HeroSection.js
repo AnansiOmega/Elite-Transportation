@@ -4,6 +4,8 @@ import HeroImage from '../assets/imgs/UnitedStatesPhoto.jpeg'
 import Button from '@material-ui/core/Button';
 import { primaryBackgroundColor, primaryColor } from '../Constants/DesignConstants';
 import ContactModal from '../components/ContactModal'
+import Elite from '../assets/Elite'
+
 
 
 
@@ -12,7 +14,8 @@ const useStyles = makeStyles({
         height: '93vh',
         width: '100vw',
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        justifyItems: 'end'
     },
     background: {
         backgroundImage: `url(${HeroImage})`,
@@ -31,10 +34,10 @@ const useStyles = makeStyles({
     header: {
         textAlign: 'center',
         fontSize: '8em',
-        borderTopStyle: 'solid',
-        borderBottomStyle: 'solid',
+        // borderTopStyle: 'solid',
+        // borderBottomStyle: 'solid',
         fontFamily: 'auto',
-        backgroundColor: primaryBackgroundColor,
+        // backgroundColor: primaryBackgroundColor,
         opacity: '.9',
         color: primaryColor,
         ['@media (max-width: 1240px)'] : {
@@ -43,13 +46,18 @@ const useStyles = makeStyles({
         ['@media (max-width: 930px)'] : {
             fontSize: '4em'
         },
-        ['@media (max-width: 600px)'] : {
+        ['@media (max-width: 500px)'] : {
             fontSize: '3em'
         },
     },
     subHeader: {
         fontFamily: 'serif',
         marginLeft: '5%'
+    },
+    ['@media (max-width: 600px)'] : {
+        root: {
+            height: '90vh'
+        }
     },
 })
 
@@ -60,7 +68,8 @@ const HeroSection = () => {
             <div className={classes.background}></div>
             <div className={classes.root}>
                 <h1 className={classes.header}>
-                    Elite Transportation Inc.
+                    <Elite />
+                    Transportation Inc.
                 </h1>
             {/* <Slide direction='right' in={true} mountOnEnter timeout={1000}>
                 <h2 className={classes.subHeader}>Providing top of the line services to our partners, and employees</h2>

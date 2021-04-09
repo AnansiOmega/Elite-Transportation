@@ -36,7 +36,7 @@ const useStyles = makeStyles({
         '& p': {
         gridColumnStart: '1',
         gridColumnEnd: '3',
-        fontSize: '4em',
+        fontSize: '5em',
         alignSelf: 'end',
         color: primaryColor,
         fontFamily: 'auto'
@@ -95,6 +95,8 @@ const useStyles = makeStyles({
                 color: primaryBackgroundColor
             } 
         },
+
+        //breakpoints for different device widths
         ['@media (max-width: 1350px)'] : {
             width: '50vw'
         },

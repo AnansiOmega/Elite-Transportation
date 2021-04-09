@@ -27,6 +27,7 @@ const useStyles = makeStyles({
         marginLeft: '5%',
         lineHeight: '2.5rem',
         fontWeight: '500',
+        marginRight: '2%',
         '& li': { animation: '$popUp 1s ease-in', opacity: 0, animationFillMode: 'forwards'},
         '& li:nth-child(1)': {animationDelay: '.5s'},
         '& li:nth-child(2)': {animationDelay: '1s'},
@@ -58,6 +59,18 @@ const useStyles = makeStyles({
     },
     hidden: {
         visibility: 'hidden'
+    },
+    ['@media (max-width: 1000px)'] : {
+        list: {
+            fontSize: '1.3em',
+            marginRight: '2%'
+        }
+    },
+    ['@media (max-width: 935px)'] : {
+        root: {
+        gridTemplateColumns: 'repeat(auto-fill, minmax(20rem, 1fr))',
+        gridTemplateRows: 'auto',
+        }
     }
 })
 
