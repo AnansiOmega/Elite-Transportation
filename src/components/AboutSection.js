@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     },
     listCont: {
         backgroundColor: primaryColor,
-        color: primaryBackgroundColor,
+        color: primaryBackgroundColor
     },
     listHeader: {
         fontSize: '2.5em',
@@ -26,7 +26,14 @@ const useStyles = makeStyles({
         fontSize: '1.4em',
         marginLeft: '5%',
         lineHeight: '2.5rem',
-        fontWeight: '500'
+        fontWeight: '500',
+        '& li': { animation: '$popUp 1s ease-in', opacity: 0, animationFillMode: 'forwards'},
+        '& li:nth-child(1)': {animationDelay: '.5s'},
+        '& li:nth-child(2)': {animationDelay: '1s'},
+        '& li:nth-child(3)': {animationDelay: '1.5s'},
+        '& li:nth-child(4)': {animationDelay: '2s'},
+        '& li:nth-child(5)': {animationDelay: '2.5s'},
+        '& li:nth-child(6)': {animationDelay: '3s'},
     },
     header: {
         fontSize: '5em',
@@ -44,8 +51,14 @@ const useStyles = makeStyles({
         marginRight: '4%',
         marginBottom: '15%',
         marginTop: '5%'
+    },
+    '@keyframes popUp': {
+        from: {transform: 'translateX(10%)', opacity: 0},
+        to: {transform: 'translateX(0%)', opacity: 1}
+    },
+    hidden: {
+        visibility: 'hidden'
     }
-
 })
 
 
@@ -81,25 +94,13 @@ const AboutSection = () => {
             <Slide  direction='right' in={showHeaders} mountOnEnter unmountOnExit timeout={1000}>
             <h3 className={classes.listHeader}>What We Offer:</h3>
             </Slide>
-            <ul className={classes.list}>
-                <Slide  direction='left' in={showHeaders} mountOnEnter unmountOnExit timeout={2000}>
+            <ul className={showSubHeaders ? classes.list : classes.hidden}>
                     <li>Customer Service is at the forefront of our business</li>
-                </Slide>
-                <Slide  direction='left' in={showHeaders} mountOnEnter unmountOnExit timeout={3000}>
                     <li>We strive for top of the line broker carrier relations</li>
-                </Slide>
-                <Slide  direction='left' in={showHeaders} mountOnEnter unmountOnExit timeout={4000}>
                     <li>24hr dispatch</li>
-                </Slide>
-                <Slide  direction='left' in={showHeaders} mountOnEnter unmountOnExit timeout={5000}>
                     <li>On Demand Services</li>
-                </Slide>
-                <Slide  direction='left' in={showHeaders} mountOnEnter unmountOnExit timeout={6000}>
                     <li>O.T.R (We deliver to 48 states)</li>
-                </Slide>
-                <Slide  direction='left' in={showHeaders} mountOnEnter unmountOnExit timeout={6000}>
                     <li>Long, dependable miles, adding consistency and reliabiilty to your paycheck</li>
-                </Slide>
             </ul>
             </div>
         </div>

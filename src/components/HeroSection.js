@@ -2,8 +2,8 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import HeroImage from '../assets/imgs/UnitedStatesPhoto.jpeg'
 import Button from '@material-ui/core/Button';
-import { primaryBackgroundColor, primaryColor, secondaryColor } from '../Constants/DesignConstants';
-// import Slide from '@material-ui/core/Slide';
+import { primaryBackgroundColor, primaryColor } from '../Constants/DesignConstants';
+import ContactModal from '../components/ContactModal'
 
 
 
@@ -51,12 +51,6 @@ const useStyles = makeStyles({
         fontFamily: 'serif',
         marginLeft: '5%'
     },
-    button: {
-        justifySelf: 'center',
-        backgroundColor: '#e2d086',
-        width: 'fit-content',
-        alignSelf: 'center'
-    }
 })
 
 const HeroSection = () => {
@@ -71,7 +65,7 @@ const HeroSection = () => {
             {/* <Slide direction='right' in={true} mountOnEnter timeout={1000}>
                 <h2 className={classes.subHeader}>Providing top of the line services to our partners, and employees</h2>
             </Slide> */}
-                <Button className={classes.button} variant='contained' size='large'>Contact Us</Button>
+            <ContactModal />
             </div>
         </>
     )

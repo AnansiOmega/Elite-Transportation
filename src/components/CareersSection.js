@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import HalfLogo from '../assets/imgs/half-logo.png'
 import Button from '@material-ui/core/Button';
 import BenefitsCard from './BenefitsCard'
 import { AttachMoney, LocalShipping, Pets, WbSunny, EventAvailable } from '@material-ui/icons';
-import { secondaryColor, secondaryBackgroundColor } from '../Constants/DesignConstants'
+import { secondaryColor, secondaryBackgroundColor, primaryColor, primaryBackgroundColor } from '../Constants/DesignConstants'
 import Typography from '@material-ui/core/Typography'
 
 
@@ -38,18 +38,24 @@ const useStyles = makeStyles({
         gap: '1rem',
         marginLeft: '15%',
         marginRight: '15%',
-        marginBottom: '6%'
+        marginBottom: '6%',
+        height: 'minmax(20vh, auto)',
     },
-    button: {
+   button: {
         justifySelf: 'center',
         alignSelf: 'center', 
         backgroundColor: secondaryBackgroundColor,
-        width: 'fit-content',
         alignSelf: 'center',
-        width: '7rem',
-        color: secondaryColor
+        width: '20rem',
+        fontSize: '3em',
+        color: secondaryColor,
+        marginBottom: '7%',
+        '& :hover': {
+            backgroundColor: primaryBackgroundColor,
+            borderColor: primaryBackgroundColor,
+            color: primaryColor
+        }
     }
-
 })
 
 // this is the list of benefits that are offered, each benefit has an array of points, and an icon attached
@@ -98,11 +104,12 @@ const benefits = [
 const CareersSection = () => {
     const classes = useStyles()
     const history = useHistory()
-
+    
     const renderBenefitCards = () => {
         return benefits.map((benefit, i) => {
+            // inverse sets the style of each benefit card, from being normal styling to the inverse of colors 
             let inverse = i % 2 === 0 ? true : false
-            return <BenefitsCard icon={benefit.icon} content={benefit.content} inverse={inverse} />
+           return <BenefitsCard icon={benefit.icon} content={benefit.content} inverse={inverse} secondaryColor={secondaryColor} order={i} />
         })
     }
 
@@ -110,9 +117,9 @@ const CareersSection = () => {
         <div className={classes.root}>
             <h1 className={classes.header}>Careers at Elite Transportation Inc.</h1>
             <Typography className={classes.subHeader}>The benefits we offer:</Typography>
-            <div className={classes.cardCont}>
-                {renderBenefitCards()}
-            </div>
+                <div className={classes.cardCont}>
+                    {renderBenefitCards()}
+                </div>
             <Button onClick={() => history.push('/apply')} size='large' className={classes.button}>Apply Now</Button>
         </div>
     )
@@ -129,9 +136,11 @@ export default CareersSection;
 
 
 
+
 // iIaA - editing a line
+
 // dd - deletes an entire liine
-// eb - jump between words
+ // eb - jump between words
 // xr - making changges in command mode x will delete what your hovering over, and r will replace
 // num + gg - jumps to specific line 
 // u - will undo 
