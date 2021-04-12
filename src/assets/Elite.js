@@ -7,21 +7,25 @@ import { ReactComponent as T} from '../assets/imgs/T.svg'
 import { ReactComponent as LastE} from '../assets/imgs/Last-E.svg'
 
 const useStyles = makeStyles({
-    root: {
-        height: '40vh',
-        widht: '30vw'
-    }
+    letters: {
+        height: '15vh',
+        width: 'auto',
+        ['@media (max-width: 500px)'] : {
+            height: '10vh',
+            width: 'auto'
+        },
+    },
 })
 
 const Elite = () => {
     const classes = useStyles()
     return(
         <div className={classes.root}>
-            <FirstE />
-            <L />
-            <I />
-            <T />
-            <LastE />
+            <FirstE className={classes.letters} />
+            <L className={classes.letters} />
+            <I className={classes.letters} />
+            <T className={classes.letters} />
+            <LastE className={classes.letters} />
         </div>
     )
 }

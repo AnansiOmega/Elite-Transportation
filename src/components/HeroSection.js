@@ -1,9 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import HeroImage from '../assets/imgs/UnitedStatesPhoto.jpeg'
-import Button from '@material-ui/core/Button';
 import { primaryBackgroundColor, primaryColor } from '../Constants/DesignConstants';
-import ContactModal from '../components/ContactModal'
 import Elite from '../assets/Elite'
 
 
@@ -15,7 +13,7 @@ const useStyles = makeStyles({
         width: '100vw',
         display: 'flex',
         flexDirection: 'column',
-        justifyItems: 'end'
+        justifyContent: 'flex-end'
     },
     background: {
         backgroundImage: `url(${HeroImage})`,
@@ -33,13 +31,12 @@ const useStyles = makeStyles({
     },
     header: {
         textAlign: 'center',
-        fontSize: '8em',
-        // borderTopStyle: 'solid',
-        // borderBottomStyle: 'solid',
-        fontFamily: 'auto',
-        // backgroundColor: primaryBackgroundColor,
+        fontSize: '5em',
+        fontFamily: 'system-ui',
+        '-webkit-text-stroke-color': 'black',
+        '-webkit-text-stroke-width': '3px',
         opacity: '.9',
-        color: primaryColor,
+        color: '#bb923a',
         ['@media (max-width: 1240px)'] : {
             fontSize: '6em'
         },
@@ -47,12 +44,16 @@ const useStyles = makeStyles({
             fontSize: '4em'
         },
         ['@media (max-width: 500px)'] : {
-            fontSize: '3em'
+            fontSize: '2em',
+            '-webkit-text-stroke-width': '1px'
         },
     },
     subHeader: {
         fontFamily: 'serif',
         marginLeft: '5%'
+    },
+    modal: {
+        justifySelf: 'flex-start'
     },
     ['@media (max-width: 600px)'] : {
         root: {
@@ -69,12 +70,11 @@ const HeroSection = () => {
             <div className={classes.root}>
                 <h1 className={classes.header}>
                     <Elite />
-                    Transportation Inc.
+                    TRANSPORTATION INC.
                 </h1>
             {/* <Slide direction='right' in={true} mountOnEnter timeout={1000}>
                 <h2 className={classes.subHeader}>Providing top of the line services to our partners, and employees</h2>
             </Slide> */}
-            <ContactModal />
             </div>
         </>
     )

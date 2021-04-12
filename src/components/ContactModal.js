@@ -121,7 +121,7 @@ const ContactModal = () => {
 
     return(
         <div className={classes.root}>
-            <Button className={classes.button} onClick={() => setOpen(true)}>Click Me!</Button>
+            <Button className={classes.button} onClick={() => setOpen(true)}>Contact Us</Button>
             <Modal
             open={open}
             onClose={() => setOpen(false)}

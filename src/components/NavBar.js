@@ -8,6 +8,7 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Button from '@material-ui/core/Button';
 import Slide from '@material-ui/core/Slide';
 import { useHistory, useLocation } from 'react-router-dom'
+import ContactModal from '../components/ContactModal'
 
 
 
@@ -16,7 +17,16 @@ import { useHistory, useLocation } from 'react-router-dom'
 const useStyles1 = makeStyles(() => ({
   root: {
     // background: "linear-gradient(180deg, rgba(32,32,32,1) 70%, rgba(255,209,0,1) 99%)"
-    background: 'linear-gradient(0deg, rgba(226,208,134,1) 0%, rgba(88,83,62,1) 21%, rgba(32,32,32,1) 45%)'
+    background: 'linear-gradient(0deg, rgba(226,208,134,1) 0%, rgba(88,83,62,1) 21%, rgba(32,32,32,1) 45%)',
+    // this selects the actual button to change the background color, and text
+    '& div':{
+      '& div':{
+        '& > button':{
+          backgroundColor: 'transparent',
+          color: '#e2d086'
+        }
+      }
+    }
   },
   logo: {
     color: '#e2d086',
@@ -25,7 +35,7 @@ const useStyles1 = makeStyles(() => ({
     flexGrow: 1
   },
   text: {
-    color: '#e2d086',
+    color: '#e2d086'
   }
 }));
 
@@ -33,6 +43,15 @@ const useStyles2 = makeStyles(() => ({
   root: {
     background: 'transparent',
     boxShadow: '0 0 0 0',
+    // this selects the actual button to change the background color, and text
+    '& div':{
+      '& div':{
+        '& > button':{
+        backgroundColor: 'transparent',
+        color: '#D6D6D6'
+      }
+    }
+  }
   },
   logo: {
     flexGrow: 1,
@@ -41,6 +60,9 @@ const useStyles2 = makeStyles(() => ({
   },
   text: {
     color: '#D6D6D6',
+  },
+  '& div  button': {
+    backgroundColor: 'transparent'
   }
 }));
 
@@ -89,6 +111,7 @@ const NavBar = (props) => {
         <AppBar className={transparent ? classes2.root : classes1.root}>
           <Toolbar>
           <Typography onClick={() => history.push('/')} className={transparent ? classes2.logo : classes1.logo} variant="h6">Elite Transportation</Typography>
+          <ContactModal className={transparent ? classes2.root : classes1.root}/>
           <Button onClick={handleRouteChange} className={transparent ? classes2.text : classes1.text}>Apply Today</Button>
           </Toolbar>
         </AppBar>
